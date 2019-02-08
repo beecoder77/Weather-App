@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Cuaca App</string>
+    <string name="masukan_kota">Masukan kota</string>
+    <string name="dont_touch_me">Dont Touch Me !</string>
+    <string name="response">Suhu : %d </string>
+    <string name="dududu">%d</string>
+</resources>
