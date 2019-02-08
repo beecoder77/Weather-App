@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         */
         WeatherAPI weatherAPIs = retrofit.create(WeatherAPI.class);
 
-        Call call = weatherAPIs.getWeatherByCity(editText.getText().toString(), "73c2446c851fba0c2c398800d098416b");
+        Call call = weatherAPIs.getWeatherByCity(editText.getText().toString(), "YOUR_API_KEY");
 
         call.enqueue(new Callback() {
             @Override
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                  */
                 if (response.body() != null) {
                     WResponse wResponse = (WResponse) response.body();
-                    responseText.setText("SUHU = " + wResponse.getMain().getTemp() + "\n" +
+                    responseText.setText("SUHU = " + wResponse.getMain().getTemp() + "Kelvin" +"\n" +
                             "Tekanan = " + wResponse.getMain().getPressure() + "\n" +
                             "Negara = " + wResponse.getSys().getCountry());
                 }
@@ -65,9 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call call, Throwable t) {
-                /*
-                Error callback
-                */
+                Toast.makeText(getApplicationContext(), "Error !", Toast.LENGTH_SHORT).show();
             }
         });
     }
